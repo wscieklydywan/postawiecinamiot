@@ -1,0 +1,485 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Soft Elegant Theme — Warm Sand, Taupe & Delicate Lilac on Cream */
+  --background: oklch(0.974 0.008 85);
+  --foreground: oklch(0.29 0.018 60);
+  --card: oklch(0.992 0.006 88);
+  --card-foreground: oklch(0.29 0.018 60);
+  --popover: oklch(0.992 0.006 88);
+  --popover-foreground: oklch(0.29 0.018 60);
+  --primary: oklch(0.22 0.04 50);
+  --primary-foreground: oklch(0.98 0.012 90);
+  --secondary: oklch(0.86 0.05 82);
+  --secondary-foreground: oklch(0.34 0.03 62);
+  --muted: oklch(0.945 0.014 82);
+  --muted-foreground: oklch(0.52 0.02 66);
+  --accent: oklch(0.68 0.135 68);
+  --accent-foreground: oklch(0.99 0.012 90);
+  --destructive: oklch(0.55 0.15 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.90 0.014 80);
+  --input: oklch(0.945 0.014 82);
+  --ring: oklch(0.68 0.135 68);
+  --chart-1: oklch(0.68 0.135 68);
+  --chart-2: oklch(0.86 0.05 82);
+  --chart-3: oklch(0.40 0.045 58);
+  --chart-4: oklch(0.72 0.10 55);
+  --chart-5: oklch(0.55 0.06 66);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.974 0.008 85);
+  --sidebar-foreground: oklch(0.29 0.018 60);
+  --sidebar-primary: oklch(0.40 0.045 58);
+  --sidebar-primary-foreground: oklch(0.98 0.012 90);
+  --sidebar-accent: oklch(0.945 0.014 82);
+  --sidebar-accent-foreground: oklch(0.29 0.018 60);
+  --sidebar-border: oklch(0.90 0.014 80);
+  --sidebar-ring: oklch(0.68 0.135 68);
+}
+
+.dark {
+  --background: oklch(0.17 0.014 50);
+  --foreground: oklch(0.95 0.012 80);
+  --card: oklch(0.21 0.016 52);
+  --card-foreground: oklch(0.95 0.012 80);
+  --popover: oklch(0.21 0.016 52);
+  --popover-foreground: oklch(0.95 0.012 80);
+  --primary: oklch(0.79 0.145 71);
+  --primary-foreground: oklch(0.22 0.03 52);
+  --secondary: oklch(0.79 0.145 71);
+  --secondary-foreground: oklch(0.22 0.03 52);
+  --muted: oklch(0.25 0.016 52);
+  --muted-foreground: oklch(0.7 0.018 70);
+  --accent: oklch(0.66 0.16 42);
+  --accent-foreground: oklch(0.98 0.012 80);
+  --destructive: oklch(0.5 0.16 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.29 0.016 52);
+  --input: oklch(0.25 0.016 52);
+  --ring: oklch(0.79 0.145 71);
+  --chart-1: oklch(0.79 0.145 71);
+  --chart-2: oklch(0.66 0.16 42);
+  --chart-3: oklch(0.7 0.1 60);
+  --chart-4: oklch(0.6 0.09 55);
+  --chart-5: oklch(0.5 0.06 50);
+  --sidebar: oklch(0.21 0.016 52);
+  --sidebar-foreground: oklch(0.95 0.012 80);
+  --sidebar-primary: oklch(0.79 0.145 71);
+  --sidebar-primary-foreground: oklch(0.22 0.03 52);
+  --sidebar-accent: oklch(0.25 0.016 52);
+  --sidebar-accent-foreground: oklch(0.95 0.012 80);
+  --sidebar-border: oklch(0.29 0.016 52);
+  --sidebar-ring: oklch(0.79 0.145 71);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), 'Manrope', system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), 'Lora', Georgia, serif;
+  --font-script: var(--font-script), 'Dancing Script', cursive;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(1deg); }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%; }
+  34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+  67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2.5s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2.5s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-draw-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw-line 1.5s ease-out forwards;
+}
+
+.animate-morph {
+  animation: morph 8s ease-in-out infinite;
+}
+
+/* Ruch od lewej do prawej — GPU-owy transform (kompozytor = pełna płynność 120fps).
+   translateX(100%) = szerokość toru; odejmujemy szerokość kropki (6px), by kończyła równo przy krawędzi. */
+@keyframes travel-dot-move {
+  /* Dłuższa, spokojniejsza pauza na starcie (podczas pojawienia) */
+  0%,
+  26% {
+    transform: translateX(0);
+  }
+  /* Ruch jednostajny — szybszy odcinek podróży (krótsze okno = większa prędkość) */
+  62%,
+  100% {
+    transform: translateX(calc(100% - 6px));
+  }
+}
+
+/* Bounce przy pojawieniu i zniknięciu + delikatna, stała elipsa w trakcie jednostajnego ruchu */
+@keyframes travel-dot-morph {
+  /* Pojawienie: od zera, spokojniej — dłuższe, łagodniejsze wejście */
+  0% {
+    transform: translateY(-50%) scale(0);
+    opacity: 0;
+  }
+  /* Bounce in — łagodnie powiększa się ponad bazę */
+  10% {
+    transform: translateY(-50%) scale(1.35);
+    opacity: 1;
+  }
+  /* ...i spokojnie osiada do bazowego rozmiaru (dłuższy postój jako okrąg) */
+  20% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  /* Krótki postój jako okrąg przed startem podróży */
+  26% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  /* Delikatna, stała elipsa w kierunku ruchu (szybszy odcinek podróży) */
+  32% {
+    transform: translateY(-50%) scaleX(1.12) scaleY(0.88);
+    opacity: 1;
+  }
+  56% {
+    transform: translateY(-50%) scaleX(1.12) scaleY(0.88);
+    opacity: 1;
+  }
+  /* Zatrzymanie — powrót do okręgu */
+  62% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  /* Dłuższy, spokojny postój jako okrąg na końcu toru */
+  88% {
+    transform: translateY(-50%) scale(1);
+    opacity: 1;
+  }
+  /* Bounce out — łagodnie rozszerza się kawałek... */
+  95% {
+    transform: translateY(-50%) scale(1.35);
+    opacity: 1;
+  }
+  /* ...i spokojnie znika do zera */
+  100% {
+    transform: translateY(-50%) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Tor ruchu (kompozytorowy transform) */
+.animate-travel-runner {
+  animation: travel-dot-move 1.7s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Sama kropka: morfing elipsy + fade, liniowo aby % odpowiadał profilowi prędkości */
+.animate-travel-dot {
+  animation: travel-dot-morph 1.7s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* „Timer" aktywnej kropki galerii — jednostajne wypełnianie pigułki (GPU scaleX) */
+@keyframes gallery-dot-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-gallery-dot-progress {
+  transform-origin: left center;
+  animation: gallery-dot-progress linear forwards;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Subtelne kołysanie wskazówki „dotknij, aby odkryć" (GPU translate) */
+@keyframes hint-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+.animate-hint-bob {
+  animation: hint-bob 1.7s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hint-bob {
+    animation: none;
+  }
+}
+
+/* Delikatne kołysanie ikony namiotu — subtelny ruch „na wietrze" */
+@keyframes tent-sway {
+  0%,
+  100% {
+    transform: rotate(-4deg) translateY(0);
+  }
+  50% {
+    transform: rotate(4deg) translateY(-1px);
+  }
+}
+
+.animate-tent-sway {
+  transform-origin: bottom center;
+  animation: tent-sway 3.4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Miękki puls tła pod ikoną namiotu */
+@keyframes tent-pulse {
+  0%,
+  100% {
+    transform: scale(0.85);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-tent-pulse {
+  animation: tent-pulse 3s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-400 { animation-delay: 0.4s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-600 { animation-delay: 0.6s; }
+.animation-delay-700 { animation-delay: 0.7s; }
+.animation-delay-800 { animation-delay: 0.8s; }
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Display serif for all headings (plain rule so it is not tree-shaken or layered-out) */
+h1,
+h2,
+h3 {
+  font-family: var(--font-fraunces), Georgia, serif !important;
+  letter-spacing: -0.01em;
+}
